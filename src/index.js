@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Page from "./templates/Page";
+
+import LoginPage from "./pages/Login";
+import HomePage from "./pages/Home";
+import ServicePage from './pages/Service';
+import ContactsPage from './pages/Contacts';
+import RecordPage from './pages/Record';
+import SignPage from './pages/Sign';
+import SigninPage from './pages/Signin';
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Page />}>
+          <Route index element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/service" element={<ServicePage/>}/>
+          <Route path="/#contacts" element={<ContactsPage/>}/>
+          <Route path="/record" element={<RecordPage/>}/>
+          <Route path="/sign" element={<SignPage/>}/>
+          <Route path="/sign_in" element={<SigninPage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

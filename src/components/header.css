@@ -1,0 +1,13 @@
+.navbar {
+border-bottom: 1px solid #333;
+background-color: white;
+}
+
+.nav-link.disabled {
+    color: rgba(0,0,0,.55) !important;
+    font-weight: bold;
+}
+
+.navbar.collapse {
+    align-items: center;
+}
